@@ -12,19 +12,24 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 @Entity
-@Table(name = "USER")
+@Table(name="USER")
 public class User {
+	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	@NotBlank(message="Name field is required!!")
-	@Size(min=2, max=20,message="min 2 and max 20 characters are allowed !!")
+	
+	@NotBlank(message = "Required Field !!")
+	@Size(min=2,max=20, message = "Name should be between 2-20 character")
 	private String name;
-	@Column(unique = true)
+	
+	@Column(unique=true)
+	@Email(regexp = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")
 	private String email;
 	private String password;
 	private String role;
@@ -33,11 +38,19 @@ public class User {
 	@Column(length = 500)
 	private String about;
 	
-	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,mappedBy="user")
-	private List<Contact> contacts=new ArrayList<>();
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user",orphanRemoval = true)
+	private List<Contact> contacts = new ArrayList<>();
+	
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	
 
 	public User(int id, String name, String email, String password, String role, boolean enabled, String imageUrl,
-			String about) {
+			String about, List<Contact> contacts) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -47,12 +60,10 @@ public class User {
 		this.enabled = enabled;
 		this.imageUrl = imageUrl;
 		this.about = about;
+		this.contacts = contacts;
 	}
 
-	public User() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+
 
 	public int getId() {
 		return id;
@@ -117,7 +128,7 @@ public class User {
 	public void setAbout(String about) {
 		this.about = about;
 	}
-	
+
 
 	public List<Contact> getContacts() {
 		return contacts;
@@ -133,6 +144,4 @@ public class User {
 				+ ", enabled=" + enabled + ", imageUrl=" + imageUrl + ", about=" + about + ", contacts=" + contacts
 				+ "]";
 	}
-
-	
 }

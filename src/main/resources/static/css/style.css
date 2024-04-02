@@ -98,3 +98,11 @@ body {
 	cursor:pointer;
 	
 }
+
+
+/*image formatting  */
+.my_profile_picture{
+	width:35px;
+	height:35px;
+	object-fit:cover;	
+}
