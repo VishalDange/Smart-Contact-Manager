@@ -4,8 +4,11 @@ The purpose of this project to create an application which stores contacts in ve
 🛠 Technologies Used:
 
 HTML, CSS, JavaScript, Bootstrap: Crafting beautiful interfaces seamlessly integrated with Thymeleaf template engine.
+
 Spring Boot: Powering our backend with its simplicity and agility.
+
 Maven: Managing dependencies.
+
 MySQL: Storing your contacts with reliability and efficiency.
 
 
