@@ -25,7 +25,7 @@
 							th:text="${contact.secondName}"></span>)
 					</h3>
 
-					<table class="table">
+					<table class="table table-stripped">
 
 						<thead>
 							<tr>
@@ -61,13 +61,13 @@
 					</div>
 
 					<div class="container text-center mt-3">
-						<button th:onclick="/deleteContact(${contact.cId})"
+						<button th:onclick="|deleteContact(${contact.cId})|"
 							class="btn btn-danger btn-block">Delete</button>
 
-						<!-- <form method="POST"
+						 <form method="POST"
 							th:action="@{'/user/update-contact/'+${contact.cId}}">
 							<button type="submit" class="btn btn-primary btn-block mt-3">Update</button>
-						</form> -->
+						</form>
 
 					</div>
 

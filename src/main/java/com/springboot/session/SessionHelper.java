@@ -21,8 +21,5 @@ public class SessionHelper {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-		
-		
 	}
-	
 }

@@ -11,7 +11,7 @@
 			<div class="card-body">
 				<h1 class="text-center">Your Contacts</h1>
 
-				<table class="table">
+				<table class="table table-stripped">
 					<thead>
 						<tr>
 							<th scope="col">#ID</th>
@@ -25,18 +25,20 @@
 						<tr th:each="c: ${contacts}">
 							<th scope="row" th:text="SCM2024-+${c.cId}">1</th>
 
-							<td>
-							    <img src="" class="my_profile_picture" th:src="@{'/image/'+${c.image}}" alt="Profile photo" />
-							    <span th:text="${c.name}"></span>
-							 </td>
+							<td><img src="" class="my_profile_picture"
+								th:src="@{'/image/'+${c.image}}" alt="Profile photo" /> <span
+								th:text="${c.name}"></span></td>
 
-							<td ><a href="#" th:href="@{'/user/'+${c.cId}+'/contact'}"><span th:text="${c.email}"></span></a></td>
+							<td><a href="#" th:href="@{'/user/'+${c.cId}+'/contact'}"><span
+									th:text="${c.email}"></span></a></td>
 
 							<td th:text="${c.phone}"></td>
-							<td>
-								<a th:onclick="/deleteContact(${c.cId})" class="btn btn-danger btn-sm">Delete</a>
-								<button class="btn btn-success btn-sm">Update</button>
-							</td>
+							<td><a th:onclick="|deleteContact(${c.cId})|"
+								class="btn btn-danger btn-sm">Delete</a>
+								<form method="POST"
+									th:action="@{'/user/update-contact/'+${c.cId}}" class="mt-2">
+									<button type="submit" class="btn btn-success btn-sm">Update</button>
+								</form></td>
 						</tr>
 
 					</tbody>
@@ -46,6 +48,8 @@
 				<!--Pagination Part  -->
 
 				<nav aria-label="Page navigation example">
+					<!-- 				<ul class="pagination"    th:if="${totalPage>0}">
+ -->
 					<ul class="pagination">
 						<li th:if="${currentPage !=0}" class="page-item"><a
 							th:href="@{'/user/show-contacts/'+${currentPage-1}}"
@@ -62,7 +66,7 @@
 
 					</ul>
 				</nav>
-				
+
 			</div>
 		</div>
 	</section>
