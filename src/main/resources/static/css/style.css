@@ -106,3 +106,21 @@ body {
 	height:35px;
 	object-fit:cover;	
 }
+
+/* Search Functionality */
+
+.search-container{
+	
+	position:relative;
+}
+
+.search-result{
+	
+	position:relative;
+	background:white;
+	width:100%;
+	padding:10px;
+	border:1px solid gray;
+	display:none;
+	
+}

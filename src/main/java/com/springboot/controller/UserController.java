@@ -79,7 +79,7 @@ public class UserController {
 	@PostMapping("/process-contact")
 	public String processContact(@ModelAttribute("contact") @Valid Contact contact, BindingResult bindingResult,
 			@RequestParam("profileImage") MultipartFile file, Model model, Principal principal, HttpSession session) {
-
+		
 		try {
 			String name = principal.getName();
 			User user = this.userRepository.getUserByUserName(name);

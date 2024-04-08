@@ -10,6 +10,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.springboot.entities.Contact;
+import com.springboot.entities.User;
 
 import jakarta.transaction.Transactional;
 
@@ -22,4 +23,7 @@ public interface ContactRepository extends JpaRepository<Contact, Integer>{
 	@Transactional
 	@Query(value="delete from Contact c where c.cId = ?1")
 	void deleteByIdCustom(Integer cId);	
+	
+	public List<Contact> findByNameContainingAndUser(String name,User user);
+	
 }
