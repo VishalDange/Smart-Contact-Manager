@@ -4,18 +4,20 @@
 <head>
 <meta charset="UTF-8" />
 <title>Add Contact Form Page</title>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 </head>
 <body>
 	<section>
-<div class="card mr-3 ml-3" style="border-radius:10px; background-color: #eeeee4;  
-				border: 1px solid rgba(255,255,255,0.3);
-  				background: rgba(255,255,255,0.2);
-  				border-radius: 15px;
-  				box-shadow: 0 4px 30px rgba(0,0,0,0.1);">
-			
+		<div class="card mr-3 ml-3"
+			style="border-radius: 10px; background-color: #eeeee4; border: 1px solid rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.2); border-radius: 15px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);">
+
 			<div class="card-body">
-				
-				<h1 class="text-center text-uppercase font-bold font-weight-bold">Add Contact</h1>
+
+				<h1 class="text-center text-uppercase font-bold font-weight-bold">Add
+					Contact</h1>
 
 				<div class="container-fluid">
 					<div class="row">
@@ -25,7 +27,7 @@
 								th:action="@{/user/process-contact}" class="mt-2">
 
 								<!--FIRST NAME  -->
-								
+
 								<div class="input-group">
 									<div class="input-group-prepend">
 										<div class="input-group-text">
@@ -37,7 +39,7 @@
 								</div>
 
 								<!--SECOND NAME  -->
-								
+
 								<div class="input-group mt-3">
 									<div class="input-group-prepend">
 										<div class="input-group-text">
@@ -81,22 +83,23 @@
 									<input required type="text" id="work" name="work"
 										placeholder="Enter work here" class="form-control" />
 								</div>
-								
-						       <!-- Contact Description -->
-						       
-						       <div id="mytextarea" class="form-group mt-3">
-						           <textarea required placeholder="Enter contact description" name="description" class="form-control" cols="30" rows="10"></textarea>
-						       </div>
-						      
-						      <!--Contact Image Field  -->
-						      <div class="custom-file">
-						           <input type="file" name="profileImage"/>
-						      </div>
-						      
-						      <div class="container text-center">
-						          <button class="btn btn-outline-primary">Save Contact</button>
-						      </div>
-						       
+
+								<!-- Contact Description -->
+
+								<div id="mytextarea" class="form-group mt-3">
+									<textarea required placeholder="Enter contact description"
+										name="description" class="form-control" cols="30" rows="10"></textarea>
+								</div>
+
+								<!--Contact Image Field  -->
+								<div class="custom-file">
+									<input type="file" name="profileImage" />
+								</div>
+
+								<div class="container text-center">
+									<button class="btn btn-outline-primary">Save Contact</button>
+								</div>
+
 							</form>
 						</div>
 					</div>
@@ -104,7 +107,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<!-- <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 		
 		<script>
@@ -112,7 +115,20 @@
         selector: '#mytextarea'
       });
     </script> -->
+
+		<script>
+			
+			$(document).ready(()=>{
+				
+				$(".item").removeClass("active");
+				$("#add-link").addClass("active");
+		        console.log("Active class added to #add-link"); // Check if active class is added
+
+				
+			});
+			
+		</script>
 	</section>
-	
+
 </body>
 </html>

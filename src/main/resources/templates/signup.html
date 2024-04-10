@@ -4,6 +4,8 @@
 <head>
 <meta charset="UTF-8" />
 <title>Sign Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 </head>
 <body>
 	<section>
@@ -81,6 +83,14 @@
 				</div>
 			</div>
 		</div>
+		
+		<script>
+			$(document).ready(()=>{
+				$(".nav-item").removeClass("active2");
+				$("#signup-link").addClass("active2");
+			});
+			
+		</script>
 	</section>
 </body>
 </html>

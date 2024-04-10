@@ -4,6 +4,8 @@
 <head>
 <meta charset="UTF-8" />
 <title>Home Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 </head>
 <body>
 	<section
@@ -12,7 +14,8 @@
 			<h1 class="font-weight-bold">Smart Contact Manager</h1>
 			<p>Start Collecting your contacts in very smarter way. We provide
 				very efficient and smarter way of handling contacts</p>
-				<button th:onclick="@{/signin}" class="btn bg-primary btn-lg text-white">Get Start</button>
+			<p class="nav-item btn"><a class="nav-link  btn-primary" href="#"
+				th:href="@{/signin}" tabindex="-1" aria-disabled="true">Get Started</a></p>
 		</div>
 	</section>
 </body>

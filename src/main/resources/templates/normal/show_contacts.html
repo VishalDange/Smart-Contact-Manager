@@ -4,56 +4,61 @@
 <head>
 <meta charset="UTF-8" />
 <title>Show Contacts Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 </head>
 <body>
 	<section>
 		<div class="card mr-3 ml-3">
 			<div class="card-body">
 				<h1 class="text-center">Your Contacts</h1>
-				
+
 				<!-- Search Field -->
-				
+
 				<div class="search-container my-3">
-				   <input onkeyup="search()"  id="search-input" type="text" class="form-control" placeholder="Search your contacts"/>
-				   
-				   <div class="search-result">
-				       <h2>This is Search Result</h2>
-				   </div>
+					<input onkeyup="search()" id="search-input" type="text"
+						class="form-control" placeholder="Search your contacts" />
+
+					<div class="search-result">
+						<h2>This is Search Result</h2>
+					</div>
 				</div>
 
-				<table class="table table-stripped">
-					<thead>
-						<tr>
-							<th scope="col">#ID</th>
-							<th scope="col">Name</th>
-							<th scope="col">Email</th>
-							<th scope="col">Phone</th>
-							<th scope="col">Action</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr th:each="c: ${contacts}">
-							<th scope="row" th:text="SCM2024-+${c.cId}">1</th>
 
-							<td><img src="" class="my_profile_picture"
-								th:src="@{'/image/'+${c.image}}" alt="Profile photo" /> <span
-								th:text="${c.name}"></span></td>
+				<div class="table-responsive">
+					<table class=" table table-hover">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">#ID</th>
+								<th scope="col">Name</th>
+								<th scope="col">Email</th>
+								<th scope="col">Phone</th>
+								<th scope="col">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="c: ${contacts}">
+								<th scope="row" th:text="SCM2024-+${c.cId}">1</th>
 
-							<td><a href="#" th:href="@{'/user/'+${c.cId}+'/contact'}"><span
-									th:text="${c.email}"></span></a></td>
+								<td><img src="" class="my_profile_picture"
+									th:src="@{'/image/'+${c.image}}" alt="Profile photo" /> <span
+									th:text="${c.name}"></span></td>
 
-							<td th:text="${c.phone}"></td>
-							<td><a th:onclick="|deleteContact(${c.cId})|"
-								class="btn btn-danger btn-sm">Delete</a>
-								<form method="POST"
-									th:action="@{'/user/update-contact/'+${c.cId}}" class="mt-2">
-									<button type="submit" class="btn btn-success btn-sm">Update</button>
-								</form></td>
-						</tr>
+								<td><a href="#" th:href="@{'/user/'+${c.cId}+'/contact'}"><span
+										th:text="${c.email}"></span></a></td>
 
-					</tbody>
-				</table>
+								<td th:text="${c.phone}"></td>
+								<td><a th:onclick="|deleteContact(${c.cId})|"
+									class="btn btn-danger btn-sm">Delete</a>
+									<form method="POST"
+										th:action="@{'/user/update-contact/'+${c.cId}}" class="mt-2">
+										<button type="submit" class="btn btn-success btn-sm">Update</button>
+									</form></td>
+							</tr>
 
+						</tbody>
+					</table>
+				</div>
 
 				<!--Pagination Part  -->
 
@@ -79,6 +84,18 @@
 
 			</div>
 		</div>
+		<script>
+			
+			$(document).ready(()=>{
+				
+				$(".item").removeClass("active");
+				$("#contacts-link").addClass("active");
+		        console.log("Active class added to #add-link"); // Check if active class is added
+
+				
+			});
+			
+		</script>
 	</section>
 </body>
 </html>

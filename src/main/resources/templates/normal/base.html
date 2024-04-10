@@ -19,6 +19,9 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 	integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
+	
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	
 </head>
 <body>
 	<!-- navbar -->
@@ -50,15 +53,15 @@
 
 	<div class="sidebar mt-2">
 		<span onclick="toggleSidebar()" class="crossBtn">&times;</span>
-		 <a href="#" th:href="@{/user/index}" class="item"><i class="fa-solid fa-house"></i>Home</a> 
+		 <a id="home-link" href="#" th:href="@{/user/index}" class="item active"><i class="fa-solid fa-house"></i>Home</a> 
 		 
-		 <a href="#" th:href="@{/user/show-contacts/0}" class="item"><i class="fa-solid fa-address-book"></i>View Contacts</a> 
+		 <a id="contacts-link" href="#" th:href="@{/user/show-contacts/0}" class="item"><i class="fa-solid fa-address-book"></i>View Contacts</a> 
 		 
-		 <a th:href="@{/user/add-contact}" class="item"><i class="fa-solid fa-user-plus"></i>Add Contact</a> 
+		 <a id="add-link" th:href="@{/user/add-contact}" class="item"><i class="fa-solid fa-user-plus"></i>Add Contact</a> 
 		 
-		 <a href="#" th:href="@{/user/profile}" class="item"><i class="fa-solid fa-user"></i>Your Profile</a> 
+		 <a id="profile-link" href="#" th:href="@{/user/profile}" class="item"><i class="fa-solid fa-user"></i>Your Profile</a> 
 		 
-		 <a href="#" class="item"><i class="fa-solid fa-gear"></i> Settings</a> 
+		 <a id="settings-link" href="#" th:href="@{/user/settings}"class="item"><i class="fa-solid fa-gear"></i> Settings</a> 
 		 
 		 <a th:href="@{/logout}" class="item"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
 		<div class="divider"></div>

@@ -14,6 +14,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -43,6 +44,9 @@ public class UserController {
 
 	@Autowired
 	private ContactRepository contactRepository;
+	
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	@ModelAttribute
 	public void addCommonData(Model model, Principal principal) {
@@ -121,7 +125,7 @@ public class UserController {
 
 //		CurrentPage-page
 //		Contact Per Page - 5
-		Pageable pageable = PageRequest.of(page, 1);
+		Pageable pageable = PageRequest.of(page, 3);
 		Page<Contact> contacts = this.contactRepository.findContactsByUser(user.getId(), pageable);
 
 		model.addAttribute("contacts", contacts);
@@ -235,4 +239,44 @@ public class UserController {
 		return "normal/profile";
 	}
 
-}
+	
+//	open Settings handler
+	
+	@GetMapping("/settings")
+	public String openSettings() {
+		return "normal/settings";
+	}
+	
+	
+	@PostMapping("/change-password")
+	public String changePassword(@RequestParam("oldPassword") String oldPassword,@RequestParam("newPassword") String newPassword, Principal
+			principal, HttpSession session) {
+		
+		
+		String name=principal.getName();
+		
+		User user=this.userRepository.getUserByUserName(name);
+		
+		if(this.bCryptPasswordEncoder.matches(oldPassword, user.getPassword())) {
+			
+			user.setPassword(this.bCryptPasswordEncoder.encode(newPassword));
+			
+			this.userRepository.save(user);
+			
+			System.out.println("Password Changes Successfully...");
+			
+			session.setAttribute("message", new Message("Password successfully changed", "success"));
+			
+		}
+		else {			
+			session.setAttribute("message", new Message("Wrong Old Password!!", "danger"));
+			
+			System.out.println("Password not changes...");
+			
+			return "redirect:/user/settings";
+		}
+		
+		
+		
+		return "redirect:/user/index";
+	}}

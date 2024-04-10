@@ -4,6 +4,8 @@
 <head>
 <meta charset="UTF-8" />
 <title>HOME||Smart Contact User</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 </head>
 <body>
 
@@ -64,7 +66,7 @@
 						<button th:onclick="|deleteContact(${contact.cId})|"
 							class="btn btn-danger btn-block">Delete</button>
 
-						 <form method="POST"
+						<form method="POST"
 							th:action="@{'/user/update-contact/'+${contact.cId}}">
 							<button type="submit" class="btn btn-primary btn-block mt-3">Update</button>
 						</form>
@@ -82,14 +84,14 @@
 			th:unless="${contact}">You don't have permission to see details
 			of this contact.</h1>
 
-		<!-- <script>
+		<script>
 			$(document).ready(()=>{
 				
 				$(".item").removeClass("active");
 				$("#contacts-link").addClass("active");
 				
 			});
-		</script> -->
+		</script>
 
 	</section>
 
