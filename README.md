@@ -12,7 +12,7 @@ Maven: Managing dependencies.
 MySQL: Storing your contacts with reliability and efficiency.
 
 
-🎯 Functional Marvels:
+🎯 Functionalities:
 
 1) Effortless Contact Storage: Say hello to easy, efficient contact management.
 2) Fortified APIs with Spring Security: Your data's fortress against unauthorized access.
