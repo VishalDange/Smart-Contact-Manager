@@ -12,10 +12,13 @@ Maven: Managing dependencies.
 MySQL: Storing your contacts with reliability and efficiency.
 
 
-🎯 Functionalities:
-
+🎯 Functionalities or Features:
 1) Effortless Contact Storage: Say hello to easy, efficient contact management.
-2) Fortified APIs with Spring Security: Your data's fortress against unauthorized access.
-3) Pagination: Navigate through your contacts effortlessly.
-4) Search: Find what you need, when you need it, in a snap.
-5 Forget Password Feature.
+2) JWT-Based Authentication: Keeping your data secure with state-of-the-art authentication.
+3) Email Verification: Ensuring security with email verification during login.
+4) Fortified APIs with Spring Security.
+5) Pagination: Navigate through your contacts effortlessly.
+6) Search: Find what you need, when you need it.
+7) Custom Email Service.
+8) Forget Password Feature.
+9) OTP Authentication.
