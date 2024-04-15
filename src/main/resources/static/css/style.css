@@ -3,14 +3,14 @@ body {
 }
 
 .bg-primary {
-	background: #009688 !important;
+	background: #0c8599 !important;
 }
 
 .banner {
 	width: 100%;
 	height: 93vh;
-	background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-		url(../image/banner2.jpeg);
+	background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)),
+		url(../image/arlington-research-kN_kViDchA0-unsplash.jpg);
 	background-size: cover;
 	color: white;
 }
@@ -22,6 +22,7 @@ body {
 }
 
 #login .container #login-row #login-column #login-box {
+	
   margin-top: 120px;
   max-width: 600px;
   height: 420px;
@@ -36,6 +37,7 @@ body {
 
 
 #login .container #login-row #login-column #login-box #login-form #register-link {
+	
   margin-top: -85px;
 }
 
