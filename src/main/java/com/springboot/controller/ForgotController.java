@@ -19,8 +19,6 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 public class ForgotController {
 	
-//    generating otp of four digit(MIN-LIMIT)
-
 	Random random=new Random(1000);
 
 	@Autowired
@@ -30,10 +28,7 @@ public class ForgotController {
 	private UserRepository userRepository;
 	
 	@Autowired
-	private BCryptPasswordEncoder bCryptPasswordEncoder;
-	
-//	email id form handler
-	
+	private BCryptPasswordEncoder bCryptPasswordEncoder;	
 	@RequestMapping("/forgot")
 	public String openEmailForm() {
 		
@@ -50,7 +45,6 @@ public class ForgotController {
 		System.out.println("OTP: "+otp);
 		
 //		code for send otp to email
-		
 		
 		String subject="OTP from Smart Contact Manager";
 		
