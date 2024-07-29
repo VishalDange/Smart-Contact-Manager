@@ -37,6 +37,7 @@ public class EmailService {
 		properties.put("mail.smtp.auth", "true");
 
 		// Step :1 get the session object
+
 		Session session = Session.getInstance(properties, new Authenticator() {
 
 			@Override
@@ -51,6 +52,7 @@ public class EmailService {
 		session.setDebug(true);
 
 		// Step :2 compose the message [text, multimedia]
+
 		MimeMessage m = new MimeMessage(session);
 
 		try {
