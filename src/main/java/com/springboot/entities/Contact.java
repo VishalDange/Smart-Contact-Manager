@@ -23,6 +23,7 @@ public class Contact {
 	private String work;
 	private String email;
 	private String phone;
+
 	private String image;
 	@Column(length = 1000)
 	private String description;
