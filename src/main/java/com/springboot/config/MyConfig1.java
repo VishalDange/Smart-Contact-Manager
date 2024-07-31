@@ -41,7 +41,15 @@ public class MyConfig1 {
 		auth.authenticationProvider(authenticationProvider());
 
 	}
+	@Bean
+	public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
 
-	
+		httpSecurity.csrf().disable().authorizeHttpRequests()
+		.requestMatchers("/admin/**").hasRole("ADMIN")
+		.requestMatchers("/user/**").hasRole("USER").requestMatchers("/**").permitAll().anyRequest()
+		.authenticated().and().formLogin().loginPage("/signin")
+		.defaultSuccessUrl("/user/index");
+		return httpSecurity.build();
+	}
 
 }
